@@ -1,0 +1,394 @@
+import kivy
+import webbrowser
+from kivy.app import App
+from kivy.factory import Factory
+from kivy.core.window import Window
+from kivymd.app import MDApp
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.label import Label
+from kivy.uix.filechooser import FileChooser
+from kivy.uix.image import Image
+from kivy.uix.textinput import TextInput
+from kivy.uix.button import Button
+from kivy.animation import Animation
+from kivy.uix.popup import Popup
+
+
+class UtiFindApp(App):
+    def build(self):
+        self.icon = "favicon.png"
+        self.window = GridLayout()
+        self.window.cols = 1
+        self.window.size_hint = (0.7, 0.8)
+        self.window.pos_hint = {"center_x": 0.5, "center_y": 0.5}
+
+        self.image = Image(source="logo.png")
+        self.window.add_widget(self.image)
+
+        self.welcome = Label(
+            text="The First Utility Finder App",
+            font_size=20,
+            color='#b6fcff',
+            size_hint=(1, 0.3),
+        )
+        self.window.add_widget(self.welcome)
+
+        self.contract = TextInput(
+            multiline=False,
+            padding_y=(18, 18),
+            size_hint=(1, 0.2),
+            hint_text='Paste contract address/name here'
+        )
+        Window.softinput_mode = 'below_target'
+        Window.softinput_mode = 'pan'
+        self.window.add_widget(self.contract)
+
+        self.space = Label(
+            text="",
+            size_hint=(0.05, 0.05),
+        )
+        self.window.add_widget(self.space)
+
+        self.button = Button(
+            text='UFind',
+            size_hint=(1, 0.2),
+            bold=True,
+            background_color='b6fcff'
+        )
+        self.button.bind(on_press=self.callback)
+        self.window.add_widget(self.button)
+
+        return self.window
+
+
+    def callback(self, instance):
+        if self.contract.text == '0x19b86299c21505cdf59cE63740B240A9C822b5E4' or \
+                self.contract.text == 'Degen Toonz' or self.contract.text == 'DEGEN TOONZ' or \
+            self.contract.text == 'degen toonz' or self.contract.text == 'Degen toonz':
+            self.welcome.text = webbrowser.open('https://utifind.click/degentoonz')
+            return
+
+        if self.contract.text == '0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D' or \
+                self.contract.text == 'BoredApe' or self.contract.text == 'Bored Ape' or \
+                self.contract.text == 'Bored Ape Yacht Club' or self.contract.text == 'BoredApeYachtClub' or \
+                self.contract.text == 'boredape' or self.contract.text == 'bored ape' or \
+                self.contract.text == 'bored ape yacht club' or self.contract.text == 'boredapeyachtclub':
+            self.welcome.text = webbrowser.open('https://utifind.click/boredape')
+            return
+
+        if self.contract.text == '0x9e8b85DBB082255Bd81c5b25323b694bc799a616' or \
+                self.contract.text == 'Cereal Club' or self.contract.text == 'cereal club' or \
+                self.contract.text == 'CEREAL CLUB':
+            self.welcome.text = webbrowser.open('https://utifind.click/cerealclub')
+            return
+
+        if self.contract.text == '0xa3AEe8BcE55BEeA1951EF834b99f3Ac60d1ABeeB' or self.contract.text == 'Vee Friends' or\
+                self.contract.text ==  'vee friends' or self.contract.text == 'Vee friends' or\
+                self.contract.text == 'veefriends' or self.contract.text == 'VEEFRIENDS':
+            self.welcome.text = webbrowser.open('https://utifind.click/veefriends')
+            return
+
+        if self.contract.text == '0x20f663cea80face82acdfa3aae6862d246ce0333' or \
+                self.contract.text == 'Drip Token' or self.contract.text == 'DRIP TOKEN' or \
+            self.contract.text == 'drip token' or self.contract.text == 'Drip' or self.contract.text == 'DRIP' or \
+                self.contract.text == 'drip':
+            self.welcome.text = webbrowser.open('https://utifind.click/driptoken')
+            return
+
+        if self.contract.text == '0x60E4d786628Fea6478F785A6d7e704777c86a7c6' or \
+                self.contract.text == 'MutantApe' or self.contract.text == 'Mutant Ape' or \
+                self.contract.text == 'Mutant Ape Yacht Club' or self.contract.text == 'MutantApeYachtClub' or \
+                self.contract.text == 'mutantape' or self.contract.text == 'mutant ape' or \
+                self.contract.text == 'mutant ape yacht club' or self.contract.text == 'mutantapeyachtclub':
+            self.welcome.text = webbrowser.open('https://utifind.click/mutantape')
+            return
+
+        if self.contract.text == '0xB9843e5dE0f37d1e22C8075e5814e13565FE7C22' or \
+                self.contract.text == 'Lucky Block' or self.contract.text == 'lucky block' or \
+                self.contract.text == 'LUCKY BLOCK' or self.contract.text == 'LBlock' or \
+                self.contract.text == 'lblock' or self.contract.text == 'LBLOCK':
+            self.welcome.text = webbrowser.open('https://utifind.click/LBlock')
+            return
+
+        if self.contract.text == '0x209C1808FeBf6c1aB7C65764bb61AD67d3923fcc' or self.contract.text == 'Ape Coin' or \
+                self.contract.text == 'ape coin' or self.contract.text == 'APE COIN' or \
+                self.contract.text == 'ape' or self.contract.text == 'APE' or self.contract.text == 'Ape':
+            self.welcome.text = webbrowser.open('https://utifind.click/apecoin')
+            return
+
+        if self.contract.text == '0xB8c77482e45F1F44dE1745F52C74426C631bDD52' or \
+                self.contract.text == 'binance' or self.contract.text == 'BINANCE' or \
+            self.contract.text == 'Binance' or self.contract.text == 'bnb' or self.contract.text == 'BNB' or \
+                self.contract.text == 'binance coin' or self.contract.text == 'BINANCE COIN' or \
+            self.contract.text == 'Binance Coin' or self.contract.text == 'Bnb':
+            self.welcome.text = webbrowser.open('https://utifind.click/binance')
+            return
+
+        if self.contract.text == '0xF5D669627376EBd411E34b98F19C868c8ABA5ADA' or \
+                self.contract.text == 'Axie Infinity' or self.contract.text == 'AXIE INFINITY' or \
+                self.contract.text == 'axie infinity' or self.contract.text == 'AXS':
+            self.welcome.text = webbrowser.open('https://utifind.click/axieinfinity')
+            return
+
+        if self.contract.text == '0xD533a949740bb3306d119CC777fa900bA034cd52' or \
+                self.contract.text == 'Curve' or self.contract.text == 'curve' or self.contract.text == 'CURVE':
+            self.welcome.text = webbrowser.open('https://utifind.click/curvecrv')
+            return
+
+        if self.contract.text == '0x0F5D2fB29fb7d3CFeE444a200298f468908cC942' or self.contract.text == 'Decentraland' or\
+                self.contract.text ==  'decentraland' or self.contract.text == 'DECENTRALAND' or\
+                self.contract.text == 'MANA' or self.contract.text == 'Mana' or self.contract.text == 'mana':
+            self.welcome.text = webbrowser.open('https://utifind.click/decentraland')
+            return
+
+        if self.contract.text == '0x3506424F91fD33084466F402d5D97f05F8e3b4AF' or self.contract.text == 'Chiliz' or \
+                self.contract.text == 'chiliz' or self.contract.text == 'CHILIZ':
+            self.welcome.text = webbrowser.open('https://utifind.click/chiliz')
+            return
+
+        if self.contract.text == '0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e' or \
+                self.contract.text == 'Yearn Finance' or self.contract.text == 'yearn finance' or \
+            self.contract.text == 'YEARN FINANCE' or self.contract.text == 'Yearn' or self.contract.text == 'yearn' or \
+                self.contract.text == 'YEARN':
+            self.welcome.text = webbrowser.open('https://utifind.click/yearnfi3')
+            return
+
+        if self.contract.text == '0xF629cBd94d3791C9250152BD8dfBDF380E2a3B9c' or \
+                self.contract.text == 'Enjin' or self.contract.text == 'ENJIN' or self.contract.text == 'enjin':
+            self.welcome.text = webbrowser.open('https://utifind.click/enjin')
+            return
+
+        if self.contract.text == '0xc944E90C64B2c07662A292be6244BDf05Cda44a7' or \
+                self.contract.text == 'THE GRAPH' or self.contract.text == 'GRAPH' or self.contract.text == 'Graph' or\
+                self.contract.text == 'the graph' or self.contract.text == 'graph' or self.contract.text == 'The Graph':
+            self.welcome.text = webbrowser.open('https://utifind.click/graph')
+            return
+
+        if self.contract.text == '0xED5AF388653567Af2F388E6224dC7C4b3241C544' or self.contract.text == 'Azuki' or\
+                self.contract.text ==  'azuki' or self.contract.text == 'AZUKI':
+            self.welcome.text = webbrowser.open('https://utifind.click/azukinft')
+            return
+
+        if self.contract.text == '0x59468516a8259058baD1cA5F8f4BFF190d30E066' or \
+                self.contract.text == 'Invisible Friends' or self.contract.text == 'invisible friends' or \
+                self.contract.text == 'INVISIBLE FRIENDS':
+            self.welcome.text = webbrowser.open('https://utifind.click/invisiblefriends')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or self.contract.text == 'Cets on Creck'\
+            or self.contract.text ==  'CETS ON CRECK' or self.contract.text == 'cets on creck':
+            self.welcome.text = webbrowser.open('https://utifind.click/cetsoncreck')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or \
+                self.contract.text == 'Okay Bears' or self.contract.text == 'okay bears' or \
+            self.contract.text == 'OKAY BEARS':
+            self.welcome.text = webbrowser.open('https://utifind.click/okaybears')
+            return
+
+        if self.contract.text == '0x26BAdF693F2b103B021c670c852262b379bBBE8A' or \
+                self.contract.text == 'IlluminatiNFT' or self.contract.text == 'Illuminati Nft' or \
+                self.contract.text == 'illuminatinft' or self.contract.text == 'illuminatinft' or \
+                self.contract.text == 'ILLUMINATINFT' or self.contract.text == 'ILLUMINATI NFT':
+            self.welcome.text = webbrowser.open('https://utifind.click/illuminati')
+            return
+
+        if self.contract.text == '0x2da32c00c3d0a77623cb13a371b24fffbafda4a7' or \
+                self.contract.text == 'THE SNKRZ NFT' or self.contract.text == 'the snkrz nft' or \
+                self.contract.text == 'Snkrz' or self.contract.text == 'snkrz':
+            self.welcome.text = webbrowser.open('https://utifind.click/snkrz')
+            return
+
+        if self.contract.text == '0x08D7C0242953446436F34b4C78Fe9da38c73668d' or self.contract.text == 'proof' or\
+                self.contract.text ==  'PROOF Collective' or self.contract.text == 'PROOF COLLECTIVE' or\
+                self.contract.text == 'Proof Collective' or self.contract.text == 'proof collective':
+            self.welcome.text = webbrowser.open('https://utifind.click/proofcol')
+            return
+
+        if self.contract.text == '0x8a90CAb2b38dba80c64b7734e58Ee1dB38B8992e' or \
+                self.contract.text == 'Doodles' or self.contract.text == 'doodles' or self.contract.text == 'DOODLES':
+            self.welcome.text = webbrowser.open('https://utifind.click/doodles')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or \
+                self.contract.text == 'Bubblegoose Ballers' or self.contract.text == 'Bubblegoose' or \
+                self.contract.text == 'bubblegoose ballers' or self.contract.text == 'bubblegoose' or \
+                self.contract.text == 'BUBBLEGOOSE BALLERS' or self.contract.text == 'BUBBLEGOOSE':
+            self.welcome.text = webbrowser.open('https://utifind.click/bubblegoose')
+            return
+
+        if self.contract.text == '0x23581767a106ae21c074b2276D25e5C3e136a68b' or \
+                self.contract.text == 'Moonbirds' or self.contract.text == 'moonbirds' or \
+                self.contract.text == 'MOONBIRDS' or self.contract.text == 'Moon birds' or \
+                self.contract.text == 'moon birds' or self.contract.text == 'MOON BIRDS':
+            self.welcome.text = webbrowser.open('https://utifind.click/moonbirds')
+            return
+
+        if self.contract.text == '0x209C1808FeBf6c1aB7C65764bb61AD67d3923fcc' or self.contract.text == 'Ape Coin' or \
+                self.contract.text == 'ape coin' or self.contract.text == 'APE COIN' or \
+                self.contract.text == 'ape' or self.contract.text == 'APE' or self.contract.text == 'Ape':
+            self.welcome.text = webbrowser.open('https://utifind.click/apecoin')
+            return
+
+        if self.contract.text == '0x49cF6f5d44E70224e2E23fDcdd2C053F30aDA28B' or \
+                self.contract.text == 'CLONE X - X TAKASHI MURAKAMI' or self.contract.text == 'CLONE X' or \
+            self.contract.text == 'TAKASHI MURAKAMI':
+            self.welcome.text = webbrowser.open('https://utifind.click/clonex')
+            return
+
+        if self.contract.text == '0x6728d91abACdbac2f326baa384513a523C21b80a' or \
+                self.contract.text == 'ShitBeast' or self.contract.text == 'Shit Beast' or \
+                self.contract.text == 'Shitbeast' or self.contract.text == 'shitbeast' or \
+                self.contract.text == 'Shit beast' or self.contract.text == 'shit beast' or \
+                self.contract.text == 'SHIT BEAST' or self.contract.text == 'SHITBEAST':
+            self.welcome.text = webbrowser.open('https://utifind.click/shitcoin')
+            return
+
+        if self.contract.text == '0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB' or \
+                self.contract.text == 'CryptoPunks' or self.contract.text == 'Crypto Punks' or \
+                self.contract.text == 'cryptopunks' or self.contract.text == 'crypto punks' or \
+                self.contract.text == 'CRYPTOPUNKS' or self.contract.text == 'CRYPTOPUNKS':
+            self.welcome.text = webbrowser.open('https://utifind.click/cryptopunks')
+            return
+
+        if self.contract.text == '0x34d85c9CDeB23FA97cb08333b511ac86E1C4E258' or \
+                self.contract.text == 'Otherdeed for Otherside' or \
+                self.contract.text ==  'otherdeed for otherside' or self.contract.text == 'OTHERDEED FOR OTHERSIDE':
+            self.welcome.text = webbrowser.open('https://utifind.click/otherdeed')
+            return
+
+        if self.contract.text == '0xbCe3781ae7Ca1a5e050Bd9C4c77369867eBc307e' or self.contract.text == 'goblintown.wtf'\
+                or self.contract.text == 'goblintown' or self.contract.text == 'Goblintown':
+            self.welcome.text = webbrowser.open('https://utifind.click/goblin')
+            return
+
+        if self.contract.text == '0xD2A077Ec359D94E0A0b7E84435eaCB40A67a817c' or \
+                self.contract.text == 'Admit One' or self.contract.text == 'admit one' or \
+            self.contract.text == 'ADMIT ONE':
+            self.welcome.text = webbrowser.open('https://utifind.click/admitone')
+            return
+
+        if self.contract.text == '0x80336Ad7A747236ef41F47ed2C7641828a480BAA' or \
+                self.contract.text == 'Chimpers' or self.contract.text == 'chimpers' \
+                or self.contract.text == 'CHIMPERS':
+            self.welcome.text = webbrowser.open('https://utifind.click/chimpers')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or \
+                self.contract.text == 'The Catalina Whale Mixer' or self.contract.text == 'Catalina Whale Mixer' \
+                or self.contract.text == 'Catalina Whale' or self.contract.text == 'catalina whale' \
+                or self.contract.text == 'catalina' or self.contract.text == 'Catalina':
+            self.welcome.text = webbrowser.open('https://utifind.click/CatalinaWhale')
+            return
+
+        if self.contract.text == '0x0A36f2178c0dB2C85471c45334a1DD17D130fd42' or self.contract.text == 'goda' or\
+                self.contract.text ==  'GODA Mint Pass' or self.contract.text == 'The GODA Mint Pass':
+            self.welcome.text = webbrowser.open('https://utifind.click/goda')
+            return
+
+        if self.contract.text == '0xCcc441ac31f02cD96C153DB6fd5Fe0a2F4e6A68d' or \
+                self.contract.text == 'FLUF World' or self.contract.text == 'fluf world' or \
+                self.contract.text == 'FLUF WORLD':
+            self.welcome.text = webbrowser.open('https://utifind.click/flufworld')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or \
+                self.contract.text == 'Blocksmith Labs' or self.contract.text ==  'BLOCKSMITH LABS' or \
+                self.contract.text == 'blocksmith labs' or self.contract.text == 'blocksmith':
+            self.welcome.text = webbrowser.open('https://utifind.click/blocksmith')
+            return
+
+
+        if self.contract.text == '0x1A92f7381B9F03921564a437210bB9396471050C' or self.contract.text == 'Cool Cats NFT' \
+            or self.contract.text == 'Cool Cats' or self.contract.text == 'cool cats' or \
+                self.contract.text == 'COOL CATS':
+            self.welcome.text = webbrowser.open('https://utifind.click/coolcats')
+            return
+
+        if self.contract.text == '0xb932a70A57673d89f4acfFBE830E8ed7f75Fb9e0' or self.contract.text == 'SuperRare' \
+            or self.contract.text == 'Super Rare' or self.contract.text == 'super rare' \
+            or self.contract.text == 'SUPERRARE' or self.contract.text == 'SUPER RARE':
+            self.welcome.text = webbrowser.open('https://utifind.click/SuperRare')
+            return
+
+        if self.contract.text == '0x1CB1A5e65610AEFF2551A50f76a87a7d3fB649C6' or \
+                self.contract.text == 'CrypToadz by GREMPLIN' or self.contract.text == 'cryptoadz by gremplin' or \
+            self.contract.text == 'CrypToadz' or self.contract.text == 'cryptoadz':
+            self.welcome.text = webbrowser.open('https://utifind.click/cryptoadz')
+            return
+
+        if self.contract.text == '0x659A4BdaAaCc62d2bd9Cb18225D9C89b5B697A5A' or \
+                self.contract.text == 'We Are All Going to Die' or self.contract.text == 'we are all going to die' or \
+            self.contract.text == 'WE ARE ALL GOING TO DIE':
+            self.welcome.text = webbrowser.open('https://utifind.click/waagtd')
+            return
+
+        if self.contract.text == '0x7Bd29408f11D2bFC23c34f18275bBf23bB716Bc7' or \
+                self.contract.text == 'Meebits' or self.contract.text == 'meebits' or \
+            self.contract.text == 'MEEBITS':
+            self.welcome.text = webbrowser.open('https://utifind.click/meetbits')
+            return
+
+        if self.contract.text == '0xe785E82358879F061BC3dcAC6f0444462D4b5330' or \
+                self.contract.text == 'World of Women' or self.contract.text == 'world of women' or \
+            self.contract.text == 'WORLD OF WOMEN':
+            self.welcome.text = webbrowser.open('https://utifind.click/WoW')
+            return
+
+        if self.contract.text == '0xc36cF0cFcb5d905B8B513860dB0CFE63F6Cf9F5c' or \
+                self.contract.text == 'Town Star' or self.contract.text == 'town star' or \
+            self.contract.text == 'TOWN STAR':
+            self.welcome.text = webbrowser.open('https://utifind.click/townstar')
+            return
+
+        if self.contract.text == '0x9C8fF314C9Bc7F6e59A9d9225Fb22946427eDC03' or \
+                self.contract.text == 'Nouns' or self.contract.text == 'nouns' or \
+            self.contract.text == 'NOUNS':
+            self.welcome.text = webbrowser.open('https://utifind.click/nouns')
+            return
+
+        if self.contract.text == '0x9F9B2B8e268d06DC67F0f76627654b80e219e1d6' or \
+                self.contract.text == 'ill poop it' or self.contract.text == 'ILL POOP IT' or \
+            self.contract.text == 'ill poop it nft':
+            self.welcome.text = webbrowser.open('https://utifind.click/illpoopit')
+            return
+
+        if self.contract.text == '0xcD041F40d497038E2da65988b7D7e2C0D9244619' or \
+                self.contract.text == 'Lacoste UNDW3 Official' or self.contract.text == 'Lacoste UNDW3' or \
+            self.contract.text == 'LACOSTE UNDW3' or self.contract.text == 'LACOSTE':
+            self.welcome.text = webbrowser.open('https://utifind.click/lacoste')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or \
+                self.contract.text == 'DeGods' or self.contract.text == 'degods' or \
+            self.contract.text == 'DEGODS':
+            self.welcome.text = webbrowser.open('https://utifind.click/degods')
+            return
+
+        if self.contract.text == '0x5CC5B05a8A13E3fBDB0BB9FcCd98D38e50F90c38' or \
+                self.contract.text == 'The Sandbox' or self.contract.text == 'Sandbox' or \
+            self.contract.text == 'the sandbox' or self.contract.text == 'sandbox' or \
+            self.contract.text == 'THE SANDBOX' or self.contract.text == 'SANDBOX':
+            self.welcome.text = webbrowser.open('https://utifind.click/sandbox')
+            return
+
+        if self.contract.text == 'TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA' or \
+                self.contract.text == 'Just Ape' or self.contract.text == 'just ape' or \
+            self.contract.text == 'JustApe' or self.contract.text == 'justape' or \
+            self.contract.text == 'JUSTAPE' or self.contract.text == 'JUST APE':
+            self.welcome.text = webbrowser.open('https://utifind.click/justape')
+            return
+
+        else:
+            self.welcome.text = 'Not Found' + '!'
+            if self.contract.text == '':
+                self.welcome.text = "The First Utility Finder App"
+                return
+            else:
+                return
+
+
+if __name__ == "__main__":
+    UtiFindApp().run()
